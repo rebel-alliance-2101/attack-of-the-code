@@ -4,6 +4,7 @@ const quotesprof = [
   "Wouldn't it be nice...",
   "Nothing is preventing you...",
   "My name is Eric Katz, better known as Prof",
+
   "I'm gonna cheat a little bit.",
   "acme_db",
   "Moe, Larry, Curly, Lucy, and Ethyl",

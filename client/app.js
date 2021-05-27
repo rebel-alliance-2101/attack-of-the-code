@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 // import { Route } from 'react-router-dom';
 import Home from './components/home';
 import LandingPage from './components/LandingPage';
 import GameContainer from './components/GameContainer';
 import { UserContext } from "./components/context/user";
+import { ViewContext } from "./components/context/view";
+import Loading from './components/Loading';
+import Editor from './components/Editor';
 
 const App = () => {
   const roomCode = window.sessionStorage.getItem("roomCode");
@@ -15,9 +18,25 @@ const App = () => {
     socket: "",
   });
 
-  return (
+  const [view, setView] = useState({loading: true});
+
+  useEffect(() => {
+    setTimeout(() => setView({ loading: false }), 2000);
+  }, [])
+
+
+  return view.loading ? (
+    <Loading />
+  ) : (
+    // <Editor />
     <UserContext.Provider value={[userContext, setUserContext]}>
-      <>{userContext.roomCode || roomCode ? <GameContainer /> : <LandingPage />}</>
+      <>
+        {userContext.roomCode || roomCode ? (
+          <GameContainer view={view} setView={setView} />
+        ) : (
+          <LandingPage view={view} setView={setView} />
+        )}
+      </>
     </UserContext.Provider>
   );
 };
