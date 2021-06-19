@@ -103,6 +103,8 @@ const Chat = () => {
     };
   }, []);
 
+  //FEEDBACK: this component is a lot easier to read. good job!
+
   function handleClickCopyRoomCode(evt) {
     evt.preventDefault();
 
