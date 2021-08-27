@@ -7,11 +7,11 @@ const app = express();
 module.exports = app;
 
 // SSL force redirect in production node env
-app.use(
-  redirectSSL.create({
-    enabled: process.env.NODE_ENV === "production",
-  })
-);
+// app.use(
+//   redirectSSL.create({
+//     enabled: process.env.NODE_ENV === "production",
+//   })
+// );
 
 app.use(cors());
 
