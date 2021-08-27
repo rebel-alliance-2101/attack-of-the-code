@@ -4,9 +4,9 @@ import { io } from "socket.io-client";
 // exports SocketContext, SocketProvider
 
 const http =
-  window.document.location.hostname === "localhost"
-    ? "http://localhost:3000"
-    : "https://www.attack-of-the-code.com";
+  window.document.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'http://www.attack-of-the-code.com';
 
 const socket = io(http, { transports: ["websocket"] });
 
